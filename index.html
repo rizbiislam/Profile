@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizbi Islam | Senior QA Engineer | Automation Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <div id="hero"></div>
+
+    <!-- Experience Section -->
+    <div id="experience"></div>
+
+    <!-- Skills Section -->
+    <div id="skills"></div>
+
+    <!-- Projects Section -->
+    <div id="projects"></div>
+
+    <!-- Contact Section -->
+    <div id="contact"></div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        // Load components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after loading
+                    initializeHeader();
+                });
+
+            // Load sections
+            const sections = ['hero', 'experience', 'skills', 'projects', 'contact', 'footer'];
+            sections.forEach(section => {
+                fetch(`sections/${section}.html`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(section).innerHTML = data;
+                    });
+            });
+        });
+
+        function initializeHeader() {
+            // Header functionality will be initialized here
+            console.log('Header initialized');
+        }
+    </script>
+</body>
+</html>
